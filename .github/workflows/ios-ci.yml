@@ -10,14 +10,11 @@ on:
       - main
 
 jobs:
-
   ios-ci:
-
     name: SwiftLint + Unit Tests
     runs-on: macos-latest
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v6
 
@@ -26,6 +23,9 @@ jobs:
         with:
           ruby-version: "3.4"
           bundler-cache: true
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
 
       - name: Run Fastlane CI
         run: bundle exec fastlane ci
