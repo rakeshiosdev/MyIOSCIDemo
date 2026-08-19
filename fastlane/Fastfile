@@ -31,7 +31,10 @@ platform :ios do
   lane :test do
     run_tests(
       scheme: "MyIOSCIDemo",
-      device: "iPhone 17"
+      devices: ["iPhone 17"],
+      clean: false,
+      code_coverage: false,
+      result_bundle: false
     )
   end
 

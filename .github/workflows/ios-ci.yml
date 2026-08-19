@@ -24,8 +24,20 @@ jobs:
           ruby-version: "3.4"
           bundler-cache: true
 
-      - name: Install SwiftLint
-        run: brew install swiftlint
+      - name: Show Xcode version
+        run: |
+          xcodebuild -version
+          xcodebuild -showsdks
 
-      - name: Run Fastlane CI
-        run: bundle exec fastlane ci
+      - name: Install SwiftLint
+        run: |
+          if ! command -v swiftlint &> /dev/null; then
+            brew install swiftlint
+          fi
+          swiftlint version
+
+      - name: Run SwiftLint
+        run: bundle exec fastlane lint
+
+      - name: Run Unit Tests
+        run: bundle exec fastlane test
