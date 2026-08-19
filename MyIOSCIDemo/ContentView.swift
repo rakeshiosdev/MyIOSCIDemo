@@ -20,6 +20,9 @@ struct ContentView: View {
             }
             .buttonSizing(.automatic)
             .tint(.purple)
+            .padding()
+            .background(Color.red)
+            .foregroundStyle(Color.white)
         }
         .padding()
     }
