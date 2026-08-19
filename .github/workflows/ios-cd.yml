@@ -1,11 +1,13 @@
 name: iOS CD
 
 on:
-  workflow_run:
-    workflows: ["iOS CI"]   # Must match the name of your CI workflow
-    types:
-      - completed
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to release"
+        required: true
+        default: "main"
+        type: string
 
 jobs:
   ios-cd:
