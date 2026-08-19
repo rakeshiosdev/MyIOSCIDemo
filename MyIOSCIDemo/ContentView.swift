@@ -18,6 +18,8 @@ struct ContentView: View {
             Button("Press me") {
                 print("Button pressed")
             }
+            .buttonSizing(.automatic)
+            .tint(.purple)
         }
         .padding()
     }
